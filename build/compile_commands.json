@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/jokk/C++/ClientExample/build",
+  "command": "/bin/g++-9  -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS  -O3 -DNDEBUG   -o CMakeFiles/main.dir/main.cpp.o -c /home/jokk/C++/ClientExample/main.cpp",
+  "file": "/home/jokk/C++/ClientExample/main.cpp"
+},
+{
+  "directory": "/home/jokk/C++/ClientExample/build",
+  "command": "/bin/g++-9  -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS  -O3 -DNDEBUG   -o CMakeFiles/LibsModule.dir/handler.cpp.o -c /home/jokk/C++/ClientExample/handler.cpp",
+  "file": "/home/jokk/C++/ClientExample/handler.cpp"
+},
+{
+  "directory": "/home/jokk/C++/ClientExample/build",
+  "command": "/bin/g++-9  -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS  -O3 -DNDEBUG   -o CMakeFiles/LibsModule.dir/controller.cpp.o -c /home/jokk/C++/ClientExample/controller.cpp",
+  "file": "/home/jokk/C++/ClientExample/controller.cpp"
+},
+{
+  "directory": "/home/jokk/C++/ClientExample/build",
+  "command": "/bin/g++-9  -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS  -O3 -DNDEBUG   -o CMakeFiles/LibsModule.dir/maker_controller.cpp.o -c /home/jokk/C++/ClientExample/maker_controller.cpp",
+  "file": "/home/jokk/C++/ClientExample/maker_controller.cpp"
+},
+{
+  "directory": "/home/jokk/C++/ClientExample/build",
+  "command": "/bin/g++-9  -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS  -O3 -DNDEBUG   -o CMakeFiles/LibsModule.dir/postgres.cpp.o -c /home/jokk/C++/ClientExample/postgres.cpp",
+  "file": "/home/jokk/C++/ClientExample/postgres.cpp"
+},
+{
+  "directory": "/home/jokk/C++/ClientExample/build",
+  "command": "/bin/g++-9  -DCPPREST_FORCE_HTTP_CLIENT_ASIO -DCPPREST_FORCE_HTTP_LISTENER_ASIO -DCPPREST_NO_SSL_LEAK_SUPPRESS  -O3 -DNDEBUG   -o CMakeFiles/LibsModule.dir/mongo.cpp.o -c /home/jokk/C++/ClientExample/mongo.cpp",
+  "file": "/home/jokk/C++/ClientExample/mongo.cpp"
+}
+]
