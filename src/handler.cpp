@@ -1,14 +1,11 @@
 #include "handler.h"
-#include "maker_controller.h"
-#include "controller.h"
+#include "controllers/maker_controller.h"
+#include "controllers/controller.h"
 
 #include <regex>
 
 void replace_numbers(utility::string_t& path);
 void add_http_method(utility::string_t& path, http::method& method);
-
-handler::handler()
-{} //NOOOOOOOO
 
 handler::handler(utility::string_t url) : m_listener(url)
 {

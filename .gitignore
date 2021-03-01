@@ -34,3 +34,7 @@
 #IDE-Directories
 .idea
 .vscode
+
+# CMAKE folders
+build
+cmake-build-debug

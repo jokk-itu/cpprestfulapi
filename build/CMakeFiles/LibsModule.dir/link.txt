@@ -1,2 +1,0 @@
-/bin/ar qc libLibsModule.a  CMakeFiles/LibsModule.dir/handler.cpp.o CMakeFiles/LibsModule.dir/controller.cpp.o CMakeFiles/LibsModule.dir/maker_controller.cpp.o CMakeFiles/LibsModule.dir/postgres.cpp.o CMakeFiles/LibsModule.dir/mongo.cpp.o
-/bin/ranlib libLibsModule.a

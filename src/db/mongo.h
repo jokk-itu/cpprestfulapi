@@ -29,11 +29,16 @@ using bsoncxx::builder::stream::open_document;
 class mongo : public db 
 {
 public:
-    mongo(utility::string_t);
+    mongo(utility::string_t&);
     ~mongo();
 
-    mongocxx::database get_db(utility::string_t);
-    mongocxx::collection get_collection(utility::string_t, mongocxx::database);
+    mongocxx::database get_db(utility::string_t&);
+    mongocxx::collection get_collection(utility::string_t&, mongocxx::database&);
+    void insert(mongocxx::collection&);
+    void update_n(mongocxx::collection&, bsoncxx::builder::stream::document&, bsoncxx::builder::stream::document&);
+    void update_one(mongocxx::collection&, bsoncxx::builder::stream::document&, bsoncxx::builder::stream::document&);
+    void delete_n(mongocxx::collection&, bsoncxx::builder::stream::document&);
+    void delete_one(mongocxx::collection&, bsoncxx::builder::stream::document&);
 
 protected:
     void open(utility::string_t) override;

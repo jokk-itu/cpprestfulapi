@@ -1,7 +1,8 @@
 #include <iostream>
 #include <exception>
+#include <memory>
 
-#include "handler.h"
+#include "src/handler.h"
 
 using namespace std;
 using namespace web;
@@ -20,13 +21,13 @@ void on_initialize(const string_t& address)
 	auto add = uri.to_uri().to_string();
     //http_listener_config config;
     //on_config(config);
-    g_http_handler = std::unique_ptr<handler>(new handler(add));
+    g_http_handler = std::make_unique<handler>(add);
     try 
     {
         if(g_http_handler->open().wait() == pplx::completed) 
             ucout << string_t(U("Listening for requests at: ")) << add << std::endl;
         else
-            throw "Error when opening listener";
+            throw U("Error when opening listener");
     } 
     catch(std::exception &e) 
     {

@@ -6,12 +6,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "-g -DDEBUG")
 
 find_package(cpprestsdk REQUIRED)
 
-ADD_LIBRARY(LibsModule 
-    handler.cpp
-    controller.cpp
-    maker_controller.cpp
-    postgres.cpp
-    mongo.cpp
+ADD_LIBRARY(LibsModule
+        src/handler.cpp
+        src/controllers/controller.cpp
+        src/controllers/maker_controller.cpp
+        src/db/postgres.cpp
+        src/db/mongo.cpp
 )
 
 target_link_libraries(LibsModule -lpqxx -lpq cpprestsdk::cpprest -lmongocxx -lbsoncxx)

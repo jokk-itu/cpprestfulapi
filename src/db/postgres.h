@@ -20,10 +20,10 @@ public:
     postgres(utility::string_t);
     ~postgres();
 
-    pqxx::result query_n(utility::string_t, const int = -1);
+    pqxx::result query_n(utility::string_t, int = -1);
     void query_0(utility::string_t);
 
-    template<typename... Args> pqxx::result query_n(utility::string_t, Args..., const int = -1);
+    template<typename... Args> pqxx::result query_n(utility::string_t, Args..., int = -1);
     template<typename... Args> void query_0(utility::string_t, Args...);
 
     void setupPreparedQuery(utility::string_t, utility::string_t);

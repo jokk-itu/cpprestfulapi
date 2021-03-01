@@ -15,7 +15,7 @@
 #include "cpprest/filestream.h"
 #include "cpprest/containerstream.h"
 
-#include "controller.h"
+#include "controllers/controller.h"
 
 using namespace std;
 using namespace web;
@@ -28,7 +28,7 @@ using namespace concurrency::streams;
 class handler
 {
 public:
-    handler(utility::string_t); //HTTP
+    explicit handler(utility::string_t); //HTTP
     handler(utility::string_t, http_listener_config); //HTTPS
     ~handler() = default;
     
@@ -37,8 +37,6 @@ public:
     pplx::task<void>close() { return m_listener.close(); }
 
 private:
-    handler();
-
     void handle_request(http_request message);
 
     http_listener m_listener;

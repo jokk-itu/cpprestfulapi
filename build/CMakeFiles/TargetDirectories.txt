@@ -1,4 +1,0 @@
-/home/jokk/C++/ClientExample/build/CMakeFiles/rebuild_cache.dir
-/home/jokk/C++/ClientExample/build/CMakeFiles/edit_cache.dir
-/home/jokk/C++/ClientExample/build/CMakeFiles/main.dir
-/home/jokk/C++/ClientExample/build/CMakeFiles/LibsModule.dir
