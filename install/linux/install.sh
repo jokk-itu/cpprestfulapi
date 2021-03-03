@@ -1,5 +1,5 @@
 #INSTALL POSTGRES
-sudo apt-get install -y libpqxx-dev #Postgres Driver
+sudo apt-get install -y libpqxx-dev
 
 cd "$HOME" || stderr "home folder does not exist"
 
@@ -24,5 +24,16 @@ sudo cmake --build . --target EP_mnmlstc_core
 cmake --build .
 sudo cmake --build . --target install
 
+#Move around bsoncxx and mongocxx, because they are installed incorrectly
+cd /usr/local/include || stdr "include directory does not exist in /usr/local"
+sudo mv bsoncxx/v_noabi/bsoncxx ../
+sudo mv mongocxx/v_noabi/mongocxx ../
+sudo rm -r bsoncxx
+sudo rm -r mongocxx
+cd ..
+sudo mv bsoncxx include
+sudo mv mongocxx include
+
+
 #INSTALL CPPRESTSDK
-sudo apt-get install libcpprest-dev #cpprestsdk
+sudo apt-get install libcpprest-dev

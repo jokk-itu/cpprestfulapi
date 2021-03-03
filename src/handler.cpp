@@ -27,7 +27,7 @@ handler::handler(utility::string_t url, http_listener_config config) :m_listener
 
 void handler::handle_request(http_request message) 
 {
-    ucout << "The message received: " << message.to_string() << std::acoshf;
+    ucout << "The message received: " << message.to_string() << std::endl;
     ucout << "Relative path encoded is: " << message.relative_uri().path() << std::endl;
     auto path = message.relative_uri().path();
     auto method = message.method();
@@ -56,9 +56,6 @@ void replace_numbers(utility::string_t& path)
     }
 }
 
-/**
- * //TODO add support for checking the HTTP method is already appended
- */ 
 void add_http_method(utility::string_t& path, http::method& method) 
 {
     if(path.at(path.length()-1) != '/')

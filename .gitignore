@@ -38,3 +38,6 @@
 # CMAKE folders
 build
 cmake-build-debug
+
+#SSL Keys
+keys
