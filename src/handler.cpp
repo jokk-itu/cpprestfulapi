@@ -3,11 +3,12 @@
 #include "controllers/controller.h"
 
 #include <regex>
+#include <utility>
 
 void replace_numbers(utility::string_t& path);
 void add_http_method(utility::string_t& path, http::method& method);
 
-handler::handler(utility::string_t url) : m_listener(url)
+handler::handler(const utility::string_t& url) : m_listener(url)
 {
     m_listener.support(std::bind(&handler::handle_request, this, std::placeholders::_1));
     ucout << "Listener is loaded" << std::endl;
@@ -16,7 +17,7 @@ handler::handler(utility::string_t url) : m_listener(url)
     ucout << "MethodRouter is loaded" << std::endl;   
 }
 
-handler::handler(utility::string_t url, http_listener_config config) :m_listener(url, config)
+handler::handler(const utility::string_t& url, http_listener_config config) :m_listener(url, std::move(config))
 {
     m_listener.support(std::bind(&handler::handle_request, this, std::placeholders::_1));
     ucout << "Listener is loaded" << std::endl;
@@ -74,5 +75,5 @@ void add_http_method(utility::string_t& path, http::method& method)
         path += U("DELETE");
 
     else
-      throw "The given HTTP method is not supported";
+      throw U("The given HTTP method is not supported");
 }

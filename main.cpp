@@ -19,9 +19,9 @@ void on_initialize(const string_t& address)
 	uri_builder uri(address);
 
 	auto add = uri.to_uri().to_string();
-    //http_listener_config config;
-    //on_config(config);
-    g_http_handler = std::make_unique<handler>(add);
+    http_listener_config config;
+    on_config(config);
+    g_http_handler = std::make_unique<handler>(add, config);
     try 
     {
         if(g_http_handler->open().wait() == pplx::completed) 
@@ -34,7 +34,7 @@ void on_initialize(const string_t& address)
         ucout << "Error occurred: " << e.what() << endl;
     }      
 }
-/**
+
 #ifndef WIN_32
 void on_config(http_listener_config& config)  
 {
@@ -43,13 +43,21 @@ void on_config(http_listener_config& config)
         context.set_options(boost::asio::ssl::context::default_workarounds);
         context.set_password_callback([](std::size_t max_length, boost::asio::ssl::context::password_purpose purpose) 
         {
-            return "password";
+            return "kelsen";
         });
-        context.use_certificate_file("server.crt", boost::asio::ssl::context::pem);
-        context.use_private_key_file("server.key", boost::asio::ssl::context::pem);
+        try
+        {
+            context.use_certificate_file("../keys/public.crt", boost::asio::ssl::context::pem);
+            context.use_private_key_file("../keys/_private.key", boost::asio::ssl::context::pem);
+        }
+        catch (exception &e)
+        {
+            cout << e.what() << std::endl;
+        }
+
     });
 }
-#endif*/
+#endif
 
 void on_shutdown()
 {
@@ -79,7 +87,7 @@ int main(const int argc, char* argv[])
         port = argv[1];
     }
 
-    string_t address = U("http://localhost:");
+    string_t address = U("https://localhost:");
     address.append(port);
 
     on_initialize(address);

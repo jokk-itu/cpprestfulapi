@@ -28,8 +28,8 @@ using namespace concurrency::streams;
 class handler
 {
 public:
-    explicit handler(utility::string_t); //HTTP
-    handler(utility::string_t, http_listener_config); //HTTPS
+    explicit handler(const utility::string_t&); //HTTP
+    handler(const utility::string_t&, http_listener_config); //HTTPS
     ~handler() = default;
     
 
