@@ -1,12 +1,16 @@
 cmake_minimum_required(VERSION 3.9)
-project(main)
+
+set(This CPPTEMPLATE)
+project(${This} C CXX)
 
 set(CMAKE_C_FLAGS_DEBUG "-g -DDEBUG")
 set(CMAKE_CXX_FLAGS_DEBUG "-g -DDEBUG")
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_CXX_STANDARD 20)
 
 find_package(cpprestsdk REQUIRED)
 
-ADD_LIBRARY(LibsModule
+add_library(LibsModule
         src/handler.cpp
         src/controllers/controller.cpp
         src/controllers/maker_controller.cpp

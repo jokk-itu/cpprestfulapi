@@ -43,7 +43,7 @@ void on_config(http_listener_config& config)
         context.set_options(boost::asio::ssl::context::default_workarounds);
         context.set_password_callback([](std::size_t max_length, boost::asio::ssl::context::password_purpose purpose) 
         {
-            return "kelsen";
+            return "some password";
         });
         try
         {
@@ -52,9 +52,8 @@ void on_config(http_listener_config& config)
         }
         catch (exception &e)
         {
-            cout << e.what() << std::endl;
+            ucout << U("Error occurred on HTTPS config ") << e.what() << std::endl;
         }
-
     });
 }
 #endif
@@ -66,13 +65,12 @@ void on_shutdown()
         if(g_http_handler->close().wait() == pplx::completed)
             ucout << string_t(U("Closed listener successfully")) << std::endl;
         else
-            throw "Error when closing listener";
+            throw U("Error when closing listener");
     }
     catch(std::exception &e) 
     {
-        ucout << "Error occurred: " << e.what() << endl;
+        ucout << "Error occurred on shutdown: " << e.what() << endl;
     }
-    
 }
 
 #ifdef _WIN32
@@ -81,13 +79,8 @@ int main(const int argc, wchar_t* argv[])
 int main(const int argc, char* argv[])
 #endif
 {
-    string_t port = U("7070");
-    if (argc == 2)
-    {
-        port = argv[1];
-    }
-
-    string_t address = U("https://localhost:");
+    string_t address = argv[1];
+    string_t port = argv[2];
     address.append(port);
 
     on_initialize(address);
